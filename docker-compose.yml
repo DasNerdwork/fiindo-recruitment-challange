@@ -1,0 +1,7 @@
+services:
+  fiindo-etl:
+    build: .
+    container_name: fiindo
+    volumes:
+      - .:/app
+    command: python app/main.py
