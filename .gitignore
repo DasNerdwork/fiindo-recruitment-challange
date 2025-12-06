@@ -1,1 +1,7 @@
+# python cache files
 __pycache__
+
+# local testing files
+cached_symbols.json
+*_general.json
+*_financials.json
