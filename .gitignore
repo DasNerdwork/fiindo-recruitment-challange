@@ -5,3 +5,7 @@ __pycache__
 cached_symbols.json
 *_general.json
 *_financials.json
+*_statement.json
+
+# environment variables
+.env

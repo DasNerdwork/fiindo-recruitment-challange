@@ -1,15 +1,28 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 # SQLite file
 DB_FILE = "fiindo_challenge.db"
 DATABASE_URL = f"sqlite:///{DB_FILE}"
 
-# Engine & session
-engine = create_engine(DATABASE_URL, echo=True, future=True)
-SessionLocal = sessionmaker(bind=engine)
+# Engine
+engine = create_engine(
+    DATABASE_URL,
+    echo=False,
+    future=True
+)
 
-# Initialize DB (conn test only)
+# Session maker
+SessionLocal = sessionmaker(
+    autocommit=False,
+    autoflush=False,
+    bind=engine
+)
+
+# Base-Klasse für Models
+Base = declarative_base()
+
+
 def init_db():
     with engine.connect() as conn:
-        print("Verbindung zur DB erfolgreich:", conn)
+        print("DB-Verbindung erfolgreich:", conn)
